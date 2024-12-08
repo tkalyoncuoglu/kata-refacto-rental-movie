@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MovieRental.Movie;
+using MovieRental.Rental;
 
 namespace MovieRental.Tests
 {
@@ -16,8 +18,8 @@ namespace MovieRental.Tests
         public void TestAddRental()
         {
             Customer customer2 = new CustomerBuilder().withName("Julia").build();
-            Movie movie1 = new Movie("Gone with the Wind", Movie.REGULAR);
-            Rental rental1 = new Rental(movie1, 3); // 3 day rental
+            Movie.Regular movie1 = new Movie.Regular("Gone with the Wind");
+            IRental rental1 = new Rental.Regular(movie1, 3); // 3 day rental
             customer2.addRental(rental1);
         }
 
@@ -30,8 +32,8 @@ namespace MovieRental.Tests
         [TestMethod]
         public void StatementForRegularMovie()
         {
-            Movie movie1 = new Movie("Gone with the Wind", Movie.REGULAR);
-            Rental rental1 = new Rental(movie1, 3); // 3 day rental
+            Movie.Regular movie1 = new Movie.Regular("Gone with the Wind");
+            IRental rental1 = new Rental.Regular(movie1, 3); // 3 day rental
             Customer customer2 =
                     new CustomerBuilder()
                             .withName("Sallie")
@@ -48,8 +50,8 @@ namespace MovieRental.Tests
         [TestMethod]
         public void StatementForNewReleaseMovie()
         {
-            Movie movie1 = new Movie("Star Wars", Movie.NEW_RELEASE);
-            Rental rental1 = new Rental(movie1, 3); // 3 day rental
+            Movie.NewRelease movie1 = new Movie.NewRelease("Star Wars");
+            IRental rental1 = new Rental.NewRelease(movie1, 3); // 3 day rental
             Customer customer2 =
                     new CustomerBuilder()
                             .withName("Sallie")
@@ -66,8 +68,8 @@ namespace MovieRental.Tests
         [TestMethod]
         public void StatementForChildrensMovie()
         {
-            Movie movie1 = new Movie("Madagascar", Movie.CHILDRENS);
-            Rental rental1 = new Rental(movie1, 3); // 3 day rental
+            Movie.Childrens movie1 = new Movie.Childrens("Madagascar");
+            IRental rental1 = new Rental.Childrens(movie1, 3); // 3 day rental
             Customer customer2
                     = new CustomerBuilder()
                     .withName("Sallie")
@@ -84,12 +86,12 @@ namespace MovieRental.Tests
         [TestMethod]
         public void StatementForManyMovies()
         {
-            Movie movie1 = new Movie("Madagascar", Movie.CHILDRENS);
-            Rental rental1 = new Rental(movie1, 6); // 6 day rental
-            Movie movie2 = new Movie("Star Wars", Movie.NEW_RELEASE);
-            Rental rental2 = new Rental(movie2, 2); // 2 day rental
-            Movie movie3 = new Movie("Gone with the Wind", Movie.REGULAR);
-            Rental rental3 = new Rental(movie3, 8); // 8 day rental
+            Movie.Childrens movie1 = new Movie.Childrens("Madagascar");
+            IRental rental1 = new Rental.Childrens(movie1, 6); // 6 day rental
+            Movie.NewRelease movie2 = new Movie.NewRelease("Star Wars");
+            IRental rental2 = new Rental.NewRelease(movie2, 2); // 2 day rental
+            Movie.Regular movie3 = new Movie.Regular("Gone with the Wind");
+            IRental rental3 = new Rental.Regular(movie3, 8); // 8 day rental
             Customer customer1
                     = new CustomerBuilder()
                     .withName("David")

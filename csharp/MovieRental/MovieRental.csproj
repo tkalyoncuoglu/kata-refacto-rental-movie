@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MovieRental</RootNamespace>
     <AssemblyName>MovieRental</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,9 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
-    <Compile Include="Movie.cs" />
-    <Compile Include="Rental.cs" />
+    <Compile Include="Movie\Childrens.cs" />
+    <Compile Include="Movie\IMovie.cs" />
+    <Compile Include="Movie\NewRelease.cs" />
+    <Compile Include="Movie\Regular.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rental\Childrens.cs" />
+    <Compile Include="Rental\IRental.cs" />
+    <Compile Include="Rental\NewRelease.cs" />
+    <Compile Include="Rental\Regular.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

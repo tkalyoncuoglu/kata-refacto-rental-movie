@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieRental.Rental;
+using System;
 using System.Collections.Generic;
 
 namespace MovieRental.Tests
@@ -9,12 +10,12 @@ namespace MovieRental.Tests
         public static readonly String NAME = "Roberts";
 
     private String name = NAME;
-        private List<Rental> rentals = new List<Rental>();
+        private List<IRental> rentals = new List<IRental>();
 
         public Customer build()
         {
             Customer result = new Customer(name);
-            foreach (Rental rental in rentals)
+            foreach (IRental rental in rentals)
             {
                 result.addRental(rental);
             }
@@ -27,7 +28,7 @@ namespace MovieRental.Tests
             return this;
         }
 
-        public CustomerBuilder withRentals(params Rental[] rentals)
+        public CustomerBuilder withRentals(params IRental[] rentals)
         {
             this.rentals.AddRange(rentals);
             return this;
